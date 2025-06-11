@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Name}} - {{.Title}}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+		
+        .header {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ccc;
+        }
+
+        .resume-button {
+            margin-top: 15px;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .resume-button:hover {
+            background-color: #0056b3;
+        }
+
+        h1, h2, h3 {
+            color: #222;
+        }
+
+        .experience, .skills {
+            margin-top: 30px;
+        }
+
+        .skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .skills li {
+            background: #e0e0e0;
+            margin: 5px;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        ul.awards {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/static/images/profile.jpg" alt="Mark De La Garza" class="profile-pic">
+            <div>
+                <h1>{{.Name}}</h1>
+                <h2>{{.Title}}</h2>
+                <p>{{.Summary}}</p>
+                <a href="/static/Mark_De_La_Garza_Resume.pdf" download class="resume-button">Download Résumé</a>
+            </div>
+        </div>
+
+        <div class="skills">
+            <h3>Technical Skills</h3>
+            <ul>
+                <li>MES (Rockwell FTPC)</li>
+                <li>PLC Studio5000</li>
+                <li>SQL DB Management</li>
+                <li>Ignition/HMI</li>
+                <li>Linux</li>
+                <li>ABB/Robotics</li>
+                <li>VFDs</li>
+				<li>SDLC</li>
+				<li>Application Support</li>
+				<li>OT&E</li>
+				<li>Automation</li>
+				<li>Manufacturing</li>
+				<li>Requirements</li>
+                <li>AGV Systems</li>
+                <li>Root Cause Analysis</li>
+                <li>Electrical Systems</li>
+                <li>Automation Systems</li>
+                <li>Jira/SNOW</li>
+                <li>Motion Control</li>
+            </ul>
+        </div>
+
+        <div class="experience">
+            <h3>Professional Experience</h3>
+
+            <div>
+                <h4>Senior Systems Engineer (Contract) – Rockwell Automation / Astrion</h4>
+                <p><strong>March 2024 – Present, San Antonio, TX</strong></p>
+                <p>Led MES solution development using Rockwell FTPC, implemented Java-based enhancements, resolved MES and automation issues, and supported real-time production optimization.</p>
+            </div>
+
+            <div>
+                <h4>Automation System Engineer – Symbotic System</h4>
+                <p><strong>July 2022 – March 2024, New Braunfels, TX</strong></p>
+                <p>Integrated ABB robotics, PLCs, and conveyor networks. Conducted root cause analysis, mentored technicians, and implemented controls-based improvements to boost uptime.</p>
+            </div>
+
+            <div>
+                <h4>Technical Lead/Payload Integration – General Atomics System Integration<h4>
+                <p><strong>July 2017 – October 2022, San Diego, CA</strong></p>
+                <p>Supported integration and diagnostics for MQ-9, MQ-1, and Predator-C platforms. Led OT&E, payload testing, and technical reviews under DoD compliance.</p>
+            </div>
+        </div>
+
+			<div class="industry-section">
+			<h3>Industry 4.0 Integration</h3>
+			<p>Leveraging automation, MES, robotics, and data analytics to drive smart manufacturing initiatives.</p>
+			<a href="https://en.wikipedia.org/wiki/Industry_4.0" target="_blank" class="learn-more">Learn more about Industry 4.0</a>
+		</div>
+
+        <div class="experience">
+            <h3>Military Experience</h3>
+
+            {{range .MilitaryExperience}}
+            <div>
+                <h4>{{.Role}} – {{.Unit}}</h4>
+                <p><strong>{{.Duration}}</strong></p>
+                <p>{{.Description}}</p>
+                {{if .Awards}}
+                <p><strong>Awards:</strong></p>
+               <ul class="awards">
+    {{range .Awards}}
+        <li>
+            <a class="medal-link" href="/static/medals/{{. | urlquery}}.html" target="_blank" title="More about {{.}}">
+                🏅 {{.}}
+            </a>
+        </li>
+    {{end}}
+</ul>
+                {{end}}
+            </div>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>
