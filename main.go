@@ -2,10 +2,11 @@ package main
 
 import (
 	"html/template"
-	"net/http"
 	"log"
+	"net/http"
 )
 
+// Experience represents civilian job experience.
 type Experience struct {
 	Role        string
 	Company     string
@@ -13,6 +14,7 @@ type Experience struct {
 	Description string
 }
 
+// MilitaryExperience represents a military role and associated honors.
 type MilitaryExperience struct {
 	Role        string
 	Unit        string
@@ -21,6 +23,7 @@ type MilitaryExperience struct {
 	Awards      []string
 }
 
+// PageData holds all data passed to the template.
 type PageData struct {
 	Name               string
 	Title              string
@@ -30,40 +33,51 @@ type PageData struct {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	log.Println("Request received at:", r.URL.Path)
+	log.Printf("Request received: %s\n", r.URL.Path)
 
-	tmpl := template.Must(template.ParseFiles("templates/index.html"))
+	tmpl, err := template.ParseFiles("templates/index.html")
+	if err != nil {
+		http.Error(w, "Template parsing error", http.StatusInternalServerError)
+		log.Printf("Template error: %v\n", err)
+		return
+	}
 
 	data := PageData{
 		Name:  "Mark De La Garza",
-		Title: "Senior System Engineer",
-		Summary: "Senior MES and Automation Engineer with over 15 years of hands-on experience across aerospace, defense, and smart manufacturing. Proven leader in integrating robotics, MES, and control systems for mission-critical operations. U.S. Air Force Veteran with over a decade supporting DoD and State Department operations overseas, decorated with multiple commendations for excellence in safety, systems readiness, and technical execution.",
+		Title: "Senior Systems Engineer",
+		Summary: `Senior MES and Automation Engineer with over 15 years of experience leading complex automation, 
+MES integration, and industrial control initiatives across aerospace, defense, and smart manufacturing sectors. 
+Extensive background in robotic systems, SQL-backed MES architecture, PLC troubleshooting, and secure military-grade payload systems.`,
 		Experiences: []Experience{
 			{
 				Role:        "Senior MES Engineer",
 				Company:     "Navistar",
 				Duration:    "2023 – Present",
-				Description: "Integrated MES systems, led root cause analysis, and optimized production flow.",
+				Description: `Led MES integrations across 30+ production stations. Implemented custom logic in Rockwell FTPC and Kepware 
+for real-time data capture and production optimization. Supported EV transition projects and root cause investigations.`,
 			},
 			{
 				Role:        "Systems Engineer",
 				Company:     "Symbotic",
 				Duration:    "2021 – 2023",
-				Description: "Implemented robotic automation in large-scale distribution centers.",
+				Description: `Integrated ABB robotics, Studio 5000-based PLCs, and conveyor control logic in autonomous distribution facilities. 
+Managed AGV diagnostics, robotic arm tuning, and root cause analyses to increase system uptime.`,
 			},
 			{
 				Role:        "Payload Integration Lead",
 				Company:     "General Atomics",
 				Duration:    "2017 – 2022",
-				Description: "Led systems integration and validation for advanced UAV platforms including MQ-9 and Predator-C.",
+				Description: `Directed integration, test, and validation of advanced ISR payloads on MQ-9 and Predator-C UAVs. 
+Coordinated OT&E, cryptographic compliance, and MIL-STD interface design across USAF and allied missions.`,
 			},
 		},
 		MilitaryExperience: []MilitaryExperience{
 			{
 				Role:     "Weapons Standardization & Safety Manager",
-				Unit:     "United States Air Force – Indian Springs, NV & Houston, TX",
+				Unit:     "USAF – Indian Springs, NV & Houston, TX",
 				Duration: "2016 – 2019",
-				Description: "Led safety programs for 177 personnel and safeguarded $180M in aerospace equipment. Directed 425+ live munitions operations during a 40-month overseas deployment with a flawless zero-mishap record. Managed standardization and readiness for global defense missions. Elevated to Lead Safety Coordinator overseeing load crew certifications and operational continuity.",
+				Description: `Managed safety protocols for 177 personnel and secured $180M in mission-critical armament systems. 
+Directed 425+ live munition operations with zero incidents. Oversaw certifications and readiness across deployment cycles.`,
 				Awards: []string{
 					"Air Force Commendation Medal",
 					"Air Force Achievement Medal",
@@ -74,9 +88,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			},
 			{
 				Role:     "Aircraft Armament Systems Specialist",
-				Unit:     "United States Air Force – 432 Maintenance Group, Creech AFB",
+				Unit:     "USAF – 432 Maintenance Group, Creech AFB",
 				Duration: "2010 – 2016",
-				Description: "Performed maintenance and armament support for MQ-9 and MQ-1 platforms. Managed evaluations, technical orders, and readiness tracking. Supported mission deployments and NATO-aligned operations in Afghanistan and the Middle East.",
+				Description: `Performed weapons systems diagnostics and armament support on MQ-1 and MQ-9 Reaper platforms. 
+Led T.O. compliance tracking, crew certification, and NATO deployment prep. Conducted site-wide load standardization training.`,
 				Awards: []string{
 					"AF Outstanding Unit Award",
 					"Global War on Terrorism Expeditionary Medal",
@@ -87,14 +102,19 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	tmpl.Execute(w, data)
+	if err := tmpl.Execute(w, data); err != nil {
+		log.Printf("Template execution error: %v\n", err)
+		http.Error(w, "Unable to render page", http.StatusInternalServerError)
+	}
 }
 
 func main() {
-	fs := http.FileServer(http.Dir("static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	// Serve static files (CSS, images, PDFs)
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
+	// Handle root
 	http.HandleFunc("/", handler)
 
-	log.Println("Server started at http://localhost:9090")
+	log.Println("Server running on http://localhost:9090")
 	log.Fatal(http.ListenAndServe(":9090", nil))
 }
