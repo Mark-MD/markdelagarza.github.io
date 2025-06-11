@@ -67,6 +67,21 @@
       width: 50px; height: 24px; background-color: #777;
       border-radius: 24px; position: relative; transition: background-color 0.3s;
     }
+    .quote-block {
+    background-color: #2a2a40;
+    color: #ccc;
+    border-left: 4px solid #2196f3;
+    padding: 20px;
+    margin: 40px 0;
+    border-radius: 8px;
+    font-style: italic;
+  }
+    .light-mode .quote-block {
+  background-color: #e0e0e0;
+  color: #333;
+  border-left-color: #1976d2;
+  }
+
     .theme-switch .slider::before {
       content: ""; position: absolute; top: 2px; left: 2px;
       height: 20px; width: 20px; background: #fff;
@@ -136,10 +151,9 @@
         <span>Requirements Gathering</span>
         <span>SDLC & OT&E</span>
       </div>
-        <blockquote style="margin-top: 40px; padding: 20px; border-left: 4px solid #00bcd4; background-color: #1e1e2f; border-radius: 8px; color: #ccc; font-style: italic;">
-        "Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."
+       <blockquote class="quote-block">
+      <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
         </blockquote>
-
     </div>
         <div class="right">
       <h1>Professional Summary</h1>
