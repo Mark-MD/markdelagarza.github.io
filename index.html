@@ -6,29 +6,15 @@
   <title>Mark De La Garza - Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Roboto', sans-serif;
       display: flex;
       justify-content: center;
       padding: 40px;
     }
-
-    .dark-mode body {
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-
-    .light-mode body {
-      background-color: #ffffff;
-      color: #222;
-    }
-
+    .dark-mode body { background-color: #121212; color: #f0f0f0; }
+    .light-mode body { background-color: #ffffff; color: #222; }
     .resume {
       display: flex;
       max-width: 1100px;
@@ -38,199 +24,66 @@
       overflow: hidden;
       width: 100%;
     }
-
-    .light-mode .resume {
-      background: #f9f9f9;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .left, .right {
-      padding: 30px;
-    }
-
-    .left {
-      background: #151520;
-      width: 35%;
-      text-align: center;
-    }
-
-    .light-mode .left {
-      background: #f0f0f0;
-    }
-
+    .light-mode .resume { background: #f9f9f9; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    .left, .right { padding: 30px; }
+    .left { background: #151520; width: 35%; text-align: center; }
+    .light-mode .left { background: #f0f0f0; }
     .left img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ccc;
-      margin-bottom: 20px;
+      width: 150px; height: 150px; border-radius: 50%;
+      object-fit: cover; border: 3px solid #ccc; margin-bottom: 20px;
     }
-
-    .left h2,
-    .section-title,
-    .right h1,
-    .item h4 {
-      color: #ccc;
-    }
-
-    .light-mode .left h2,
-    .light-mode .section-title,
-    .light-mode .right h1,
-    .light-mode .item h4 {
-      color: #333;
-    }
-
+    .left h2, .section-title, .right h1, .item h4 { color: #ccc; }
+    .light-mode .left h2, .light-mode .section-title, .light-mode .right h1, .light-mode .item h4 { color: #333; }
     .section-title {
-      margin: 20px 0 10px;
-      border-bottom: 2px solid #ccc;
-      display: inline-block;
+      margin: 20px 0 10px; border-bottom: 2px solid #ccc; display: inline-block;
     }
-
     .left p, .left a {
-      color: #ccc;
-      font-size: 14px;
-      margin-bottom: 8px;
-      display: block;
+      color: #ccc; font-size: 14px; margin-bottom: 8px; display: block;
     }
-
-    .light-mode .left p, .light-mode .left a {
-      color: #333;
-    }
-
-    .right {
-      width: 65%;
-    }
-
-    .right h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .right h3 {
-      color: #ccc;
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-
-    .light-mode .right h3 {
-      color: #444;
-    }
-
-    .item {
-      margin-bottom: 20px;
-    }
-
+    .light-mode .left p, .light-mode .left a { color: #333; }
+    .right { width: 65%; }
+    .right h1 { font-size: 32px; margin-bottom: 10px; }
+    .right h3 { color: #ccc; margin-top: 30px; margin-bottom: 10px; }
+    .light-mode .right h3 { color: #444; }
+    .item { margin-bottom: 20px; }
     .skills span {
-      display: inline-block;
-      background: #2a2a40;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 4px;
-      font-size: 14px;
-      min-width: 180px;
-      text-align: center;
+      display: inline-block; background: #2a2a40;
+      padding: 5px 10px; margin: 5px; border-radius: 4px;
+      font-size: 14px; min-width: 180px; text-align: center;
     }
+    .light-mode .skills span { background: #ddd; color: #333; }
+    ul { padding-left: 20px; }
+    ul li { margin-bottom: 5px; }
 
-    .light-mode .skills span {
-      background: #ddd;
-      color: #333;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 5px;
-    }
-
-    /* Toggle switch */
     .toggle-container {
-      position: absolute;
-      top: 10px;
-      right: 20px;
+      position: absolute; top: 10px; right: 20px;
     }
-
     .theme-switch {
-      display: inline-flex;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
+      display: inline-flex; align-items: center;
+      cursor: pointer; user-select: none;
     }
-
-    .theme-switch input {
-      display: none;
-    }
-
+    .theme-switch input { display: none; }
     .theme-switch .slider {
-      width: 50px;
-      height: 24px;
-      background-color: #777;
-      border-radius: 24px;
-      position: relative;
-      transition: background-color 0.3s;
+      width: 50px; height: 24px; background-color: #777;
+      border-radius: 24px; position: relative; transition: background-color 0.3s;
     }
-
     .theme-switch .slider::before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      height: 20px;
-      width: 20px;
-      background: #fff;
-      border-radius: 50%;
-      transition: transform 0.3s;
+      content: ""; position: absolute; top: 2px; left: 2px;
+      height: 20px; width: 20px; background: #fff;
+      border-radius: 50%; transition: transform 0.3s;
     }
+    .theme-switch input:checked + .slider { background-color: #333; }
+    .theme-switch input:checked + .slider::before { transform: translateX(26px); }
 
-    .theme-switch input:checked + .slider {
-      background-color: #333;
-    }
-
-    .theme-switch input:checked + .slider::before {
-      transform: translateX(26px);
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      body {
-        padding: 20px;
-      }
-
-      .resume {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .left, .right {
-        width: 100%;
-        padding: 20px;
-      }
-
-      .left img {
-        width: 120px;
-        height: 120px;
-      }
-
-      .right h1 {
-        font-size: 26px;
-        text-align: center;
-      }
-
-      .right h3,
-      .item h4 {
-        text-align: center;
-      }
-
-      .skills span {
-        min-width: 100px;
-        font-size: 13px;
-      }
-
-      ul {
-        padding-left: 10px;
-      }
+      body { padding: 20px; }
+      .resume { flex-direction: column; align-items: center; }
+      .left, .right { width: 100%; padding: 20px; }
+      .left img { width: 120px; height: 120px; }
+      .right h1 { font-size: 26px; text-align: center; }
+      .right h3, .item h4 { text-align: center; }
+      .skills span { min-width: 100px; font-size: 13px; }
+      ul { padding-left: 10px; }
     }
   </style>
 </head>
@@ -272,61 +125,61 @@
         <span>SDLC & OT&E</span>
       </div>
     </div>
-
-    <div class="right">
+        <div class="right">
       <h1>Professional Summary</h1>
-      <p>Industrial automation and manufacturing systems expert with 15+ years of experience leading automation initiatives across aerospace, defense, and commercial production. Specialized in MES solutions, System architecture, and real-time control systems...</p>
+      <p>Industrial automation and manufacturing systems expert with 15+ years of experience leading automation initiatives across aerospace, defense, and commercial production. Specialized in MES solutions, system architecture, and real-time control systems. Proven track record of optimizing production lines, troubleshooting high-impact systems, and delivering resilient automation platforms using Rockwell, ABB, and custom robotics solutions. Strong background in defense-grade systems, including cryptographic compliance and payload integration. Collaborative leader and mentor with success driving uptime, system continuity, and factory modernization.</p>
 
       <h3>Experience</h3>
       <div class="item">
         <h4>Senior MES Engineer – Rockwell Automation</h4>
         <p><strong>2023 – Present</strong></p>
-        <p>Led the integration of Rockwell FTPC and Kepware across 30+ stations...</p>
+        <p>Led deployment and optimization of FactoryTalk ProductionCentre across 30+ manufacturing stations. Integrated Kepware data collectors and configured SQL queries for dynamic KPI dashboards. Supported EV line throughput by designing custom MES logic and job tracking sequences. Facilitated coordination across OT/IT departments and ensured system stability during rollout phases. Mentored junior engineers on scripting and FTPC configuration best practices.</p>
       </div>
       <div class="item">
         <h4>Systems Engineer – Symbotic System</h4>
         <p><strong>2021 – 2023</strong></p>
-        <p>Integrated ABB IRB robots and Studio5000 PLCs...</p>
+        <p>Integrated ABB IRB 4600 and IRB 8700 robotic arms with Symbotic's WES and conveyor system logic. Configured and deployed PLC programs using Studio5000, with custom motion profiles and resolver calibration routines. Implemented diagnostics for AGVs and oversaw upgrades to firmware and fault-handling logic. Conducted root cause analysis of robotic downtime and trained facility techs on safety protocols and automation workflows.</p>
       </div>
       <div class="item">
-        <h4>Payload Integration Lead – General Atomic System Integration</h4>
+        <h4>Payload Integration Lead – General Atomics System Integration</h4>
         <p><strong>2017 – 2022</strong></p>
-        <p>Oversaw the integration of secure ISR payloads into MQ-1/MQ-9 platforms...</p>
+        <p>Oversaw technical integration of secure ISR payloads into MQ-1 and MQ-9 platforms. Designed interface control documents for MIL-STD-1553 and CM2-compliant communications. Directed end-to-end verification using OT&E methodologies. Collaborated with defense program managers and military operators to meet mission readiness. Conducted cryptographic key handling and Type 1 integration verification with NSA oversight.</p>
       </div>
 
       <h3>Military Experience</h3>
       <div class="item">
         <h4>Weapons Standardization & Safety Manager – USAF</h4>
         <p><strong>2016 – 2019</strong></p>
-        <p>Directed safety programs, load certifications, and armament procedures...</p>
+        <p>Managed load certification programs and trained 177+ airmen in munitions handling. Ensured strict adherence to U.S. Air Force safety policies, with zero reportable mishaps over 425+ live load operations. Built weapons standardization checklists and enforced accountability across rotating deployment cycles. Supported Global Hawk and Predator-C load operations in support of overseas missions.</p>
       </div>
       <div class="item">
         <h4>Aircraft Armament Systems Specialist – USAF</h4>
         <p><strong>2010 – 2016</strong></p>
-        <p>Maintained weapons systems and configured support equipment...</p>
+        <p>Maintained and troubleshot aircraft armament systems for MQ-1, MQ-9, and RQ-170 programs. Supported NATO rapid deployment logistics. Operated test sets and MIL-STD interface cables to validate electrical and communication integrity. Mentored junior specialists during hands-on training events. Received multiple commendations for on-time sortie generation and load crew excellence.</p>
       </div>
 
-     <h3>Awards & Commendations</h3>
-  <ul>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Commendation_Medal" target="_blank">Air Force Commendation Medal</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Achievement_Medal" target="_blank">Air Force Achievement Medal</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Meritorious_Unit_Award" target="_blank">Meritorious Unit Award (3 OLC)</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Afghanistan_Campaign_Medal" target="_blank">Afghanistan Campaign Medal (2 Service Stars)</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_and_Space_Expeditionary_Service_Ribbon" target="_blank">Air Force Expeditionary Service Ribbon (Gold Border, 1 OLC)</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Organizational_Excellence_Award" target="_blank">AF Outstanding Unit Award</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Global_War_on_Terrorism_Expeditionary_Medal" target="_blank">Global War on Terrorism Expeditionary Medal</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Good_Conduct_Medal_(United_States)" target="_blank">AF Good Conduct Medal</a></li>
-    <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Training_Ribbon" target="_blank">AF Training Ribbon</a></li>
-  </ul>
+      <h3>Awards & Commendations</h3>
+      <ul>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Commendation_Medal" target="_blank">Air Force Commendation Medal</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Achievement_Medal" target="_blank">Air Force Achievement Medal</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Meritorious_Unit_Award" target="_blank">Meritorious Unit Award (3 OLC)</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Afghanistan_Campaign_Medal" target="_blank">Afghanistan Campaign Medal (2 Service Stars)</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_and_Space_Expeditionary_Service_Ribbon" target="_blank">Air Force Expeditionary Service Ribbon (Gold Border, 1 OLC)</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Organizational_Excellence_Award" target="_blank">AF Outstanding Unit Award</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Global_War_on_Terrorism_Expeditionary_Medal" target="_blank">Global War on Terrorism Expeditionary Medal</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Good_Conduct_Medal_(United_States)" target="_blank">AF Good Conduct Medal</a></li>
+        <li>🏅 <a href="https://en.wikipedia.org/wiki/Air_Force_Training_Ribbon" target="_blank">AF Training Ribbon</a></li>
+      </ul>
+
       <h3>🎓 Education</h3>
       <div class="item">
-        <p>🎓 <strong>M.S. Industrial Systems Engineering</strong> – ECPI University</p>
+        <p>🎓 <strong>M.S. Industrial Systems Engineering</strong> – ECPI University, Virginia Beach, VA (In Progress)</p>
       </div>
       <div class="item">
-        <p>🎓 <strong>B.S. Computer Science</strong> – ECPI University</p>
+        <p>🎓 <strong>B.S. Computer Science, Software Development</strong> – ECPI University, Virginia Beach, VA</p>
       </div>
       <div class="item">
-        <p>🎓 <strong>B.S. Electrical Systems Engineering</strong> – ECPI University</p>
+        <p>🎓 <strong>B.S. Electrical Systems Engineering Technology</strong> – ECPI University, Virginia Beach, VA</p>
       </div>
     </div>
   </div>
@@ -342,3 +195,4 @@
   </script>
 </body>
 </html>
+
