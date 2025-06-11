@@ -84,42 +84,58 @@ h1, h2, h3 {
 
 /* 🔽 Responsive Design for Mobile Devices */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-        margin: 20px 10px;
-    }
+  body {
+    padding: 20px;
+    display: block;
+  }
 
-    .header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .resume {
+    flex-direction: column;
+  }
 
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-    }
+  .left, .right {
+    width: 100%;
+    padding: 20px;
+  }
 
-    h1 {
-        font-size: 1.5rem;
-    }
+  .header,
+  .skills {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    h2 {
-        font-size: 1.2rem;
-    }
+  .profile-pic,
+  .left img {
+    width: 100px;
+    height: 100px;
+  }
 
-    h3 {
-        font-size: 1rem;
-    }
+  .right h1 {
+    font-size: 24px;
+    text-align: center;
+  }
 
-    .resume-button,
-    .learn-more {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
+  .right h3 {
+    font-size: 18px;
+    text-align: center;
+  }
 
-    .industry-section {
-        font-size: 14px;
-        padding: 15px;
-    }
+  .skills span {
+    min-width: unset;
+    width: 100%;
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  ul {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  ul li {
+    list-style: none;
+    margin: 8px 0;
+  }
 }
+
