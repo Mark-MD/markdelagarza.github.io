@@ -226,13 +226,13 @@
   </div>
 
   <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const html = document.body;
 
-    toggle.addEventListener('change', () => {
-      html.classList.toggle('light-mode');
-      html.classList.toggle('dark-mode');
-    });
+  toggle.addEventListener('change', () => {
+    html.classList.toggle('light-mode');
+    html.classList.toggle('dark-mode');
+  });
   </script>
 </body>
 </html>
