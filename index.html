@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{.Name}} - {{.Title}}</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <title>Mark De La Garza – Senior Systems Engineer</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,7 +19,7 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
         }
-		
+
         .header {
             display: flex;
             align-items: center;
@@ -75,96 +74,120 @@
         ul.awards {
             padding-left: 20px;
         }
+
+        .medal-link {
+            color: #ffc107;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .medal-link:hover {
+            color: #ffa000;
+            text-decoration: underline;
+        }
+
+        .industry-section {
+            background: #252538;
+            color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .learn-more:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="profile.jpg" alt="Mark De La Garza" class="profile-pic">
-            <div>
-                <h1>{{.Name}}</h1>
-                <h2>{{.Title}}</h2>
-                <p>{{.Summary}}</p>
-                <a href="/static/Mark_De_La_Garza_Resume.pdf" download class="resume-button">Download Résumé</a>
-            </div>
-        </div>
-
-        <div class="skills">
-            <h3>Technical Skills</h3>
-            <ul>
-                <li>MES (Rockwell FTPC)</li>
-                <li>PLC Studio5000</li>
-                <li>SQL DB Management</li>
-                <li>Ignition/HMI</li>
-                <li>Linux</li>
-                <li>ABB/Robotics</li>
-                <li>VFDs</li>
-				<li>SDLC</li>
-				<li>Application Support</li>
-				<li>OT&E</li>
-				<li>Automation</li>
-				<li>Manufacturing</li>
-				<li>Requirements</li>
-                <li>AGV Systems</li>
-                <li>Root Cause Analysis</li>
-                <li>Electrical Systems</li>
-                <li>Automation Systems</li>
-                <li>Jira/SNOW</li>
-                <li>Motion Control</li>
-            </ul>
-        </div>
-
-        <div class="experience">
-            <h3>Professional Experience</h3>
-
-            <div>
-                <h4>Senior Systems Engineer (Contract) – Rockwell Automation / Astrion</h4>
-                <p><strong>March 2024 – Present, San Antonio, TX</strong></p>
-                <p>Led MES solution development using Rockwell FTPC, implemented Java-based enhancements, resolved MES and automation issues, and supported real-time production optimization.</p>
-            </div>
-
-            <div>
-                <h4>Automation System Engineer – Symbotic System</h4>
-                <p><strong>July 2022 – March 2024, New Braunfels, TX</strong></p>
-                <p>Integrated ABB robotics, PLCs, and conveyor networks. Conducted root cause analysis, mentored technicians, and implemented controls-based improvements to boost uptime.</p>
-            </div>
-
-            <div>
-                <h4>Technical Lead/Payload Integration – General Atomics System Integration<h4>
-                <p><strong>July 2017 – October 2022, San Diego, CA</strong></p>
-                <p>Supported integration and diagnostics for MQ-9, MQ-1, and Predator-C platforms. Led OT&E, payload testing, and technical reviews under DoD compliance.</p>
-            </div>
-        </div>
-
-			<div class="industry-section">
-			<h3>Industry 4.0 Integration</h3>
-			<p>Leveraging automation, MES, robotics, and data analytics to drive smart manufacturing initiatives.</p>
-			<a href="https://en.wikipedia.org/wiki/Industry_4.0" target="_blank" class="learn-more">Learn more about Industry 4.0</a>
-		</div>
-
-        <div class="experience">
-            <h3>Military Experience</h3>
-
-            {{range .MilitaryExperience}}
-            <div>
-                <h4>{{.Role}} – {{.Unit}}</h4>
-                <p><strong>{{.Duration}}</strong></p>
-                <p>{{.Description}}</p>
-                {{if .Awards}}
-                <p><strong>Awards:</strong></p>
-               <ul class="awards">
-    {{range .Awards}}
-        <li>
-            <a class="medal-link" href="/static/medals/{{. | urlquery}}.html" target="_blank" title="More about {{.}}">
-                🏅 {{.}}
-            </a>
-        </li>
-    {{end}}
-</ul>
-                {{end}}
-            </div>
-            {{end}}
+<div class="container">
+    <div class="header">
+        <img src="profile.jpg" alt="Mark De La Garza" class="profile-pic">
+        <div>
+            <h1>Mark De La Garza</h1>
+            <h2>Senior Systems Engineer</h2>
+            <p>Senior MES and Automation Engineer with over 15 years of hands-on experience across aerospace, defense, and smart manufacturing. Proven leader in integrating robotics, MES, and control systems for mission-critical operations. U.S. Air Force Veteran with over a decade supporting DoD and State Department operations overseas, decorated with multiple commendations for excellence in safety, systems readiness, and technical execution.</p>
+            <a href="Mark_De_La_Garza_Resume.pdf" download class="resume-button">Download Résumé</a>
         </div>
     </div>
+
+    <div class="skills">
+        <h3>Technical Skills</h3>
+        <ul>
+            <li>MES (Rockwell FTPC)</li><li>PLC Studio5000</li><li>SQL DB Management</li>
+            <li>Ignition/HMI</li><li>Linux</li><li>ABB/Robotics</li><li>VFDs</li>
+            <li>SDLC</li><li>Application Support</li><li>OT&E</li><li>Automation</li>
+            <li>Manufacturing</li><li>Requirements</li><li>AGV Systems</li>
+            <li>Root Cause Analysis</li><li>Electrical Systems</li>
+            <li>Automation Systems</li><li>Jira/SNOW</li><li>Motion Control</li>
+        </ul>
+    </div>
+
+    <div class="experience">
+        <h3>Professional Experience</h3>
+        <div>
+            <h4>Senior Systems Engineer (Contract) – Rockwell Automation / Astrion</h4>
+            <p><strong>March 2024 – Present, San Antonio, TX</strong></p>
+            <p>Led MES solution development using Rockwell FTPC, implemented Java-based enhancements, resolved MES and automation issues, and supported real-time production optimization.</p>
+        </div>
+        <div>
+            <h4>Automation System Engineer – Symbotic System</h4>
+            <p><strong>July 2022 – March 2024, New Braunfels, TX</strong></p>
+            <p>Integrated ABB robotics, PLCs, and conveyor networks. Conducted root cause analysis, mentored technicians, and implemented controls-based improvements to boost uptime.</p>
+        </div>
+        <div>
+            <h4>Technical Lead/Payload Integration – General Atomics System Integration</h4>
+            <p><strong>July 2017 – October 2022, San Diego, CA</strong></p>
+            <p>Supported integration and diagnostics for MQ-9, MQ-1, and Predator-C platforms. Led OT&E, payload testing, and technical reviews under DoD compliance.</p>
+        </div>
+    </div>
+
+    <div class="industry-section">
+        <h3>Industry 4.0 Integration</h3>
+        <p>Leveraging automation, MES, robotics, and data analytics to drive smart manufacturing initiatives.</p>
+        <a href="https://en.wikipedia.org/wiki/Industry_4.0" target="_blank" class="learn-more">Learn more about Industry 4.0</a>
+    </div>
+
+    <div class="experience">
+        <h3>Military Experience</h3>
+        <div>
+            <h4>Weapons Standardization & Safety Manager – United States Air Force</h4>
+            <p><strong>2016 – 2019</strong></p>
+            <p>Led safety programs for 177 personnel and safeguarded $180M in aerospace equipment. Directed 425+ live munitions operations during a 40-month overseas deployment with a flawless zero-mishap record.</p>
+            <p><strong>Awards:</strong></p>
+            <ul class="awards">
+                <li><a class="medal-link" href="https://en.wikipedia.org/wiki/Air_Force_Commendation_Medal" target="_blank">🏅 Air Force Commendation Medal</a></li>
+                <li><a class="medal-link" href="https://en.wikipedia.org/wiki/Air_Force_Achievement_Medal" target="_blank">🏅 Air Force Achievement Medal</a></li>
+                <li>🏅 Meritorious Unit Award (3 OLC)</li>
+                <li>🏅 Afghanistan Campaign Medal (2 Service Stars)</li>
+                <li>🏅 Air Force Expeditionary Service Ribbon (Gold Border, 1 OLC)</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Aircraft Armament Systems Specialist – United States Air Force</h4>
+            <p><strong>2010 – 2016</strong></p>
+            <p>Performed maintenance and armament support for MQ-9 and MQ-1 platforms. Managed evaluations, technical orders, and readiness tracking. Supported mission deployments and NATO-aligned operations in Afghanistan and the Middle East.</p>
+            <p><strong>Awards:</strong></p>
+            <ul class="awards">
+                <li>🏅 AF Outstanding Unit Award</li>
+                <li>🏅 Global War on Terrorism Expeditionary Medal</li>
+                <li>🏅 AF Good Conduct Medal</li>
+                <li>🏅 AF Training Ribbon</li>
+            </ul>
+        </div>
+    </div>
+</div>
 </body>
 </html>
