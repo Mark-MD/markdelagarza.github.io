@@ -83,6 +83,16 @@ h1, h2, h3 {
 }
 
 /* 🔽 Responsive Design for Mobile Devices */
+
+a {
+  color: #2196f3; /* Base link color (blue) */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #1976d2; /* Slightly darker blue on hover */
+}
+
 @media (max-width: 768px) {
   .resume {
     flex-direction: column;
