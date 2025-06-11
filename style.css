@@ -47,6 +47,7 @@ body {
 .experience {
     margin-bottom: 20px;
 }
+
 .industry-section {
     background: #252538;
     color: #f1f1f1;
@@ -77,7 +78,48 @@ body {
     background-color: #0056b3;
 }
 
-
 h1, h2, h3 {
     color: #333;
+}
+
+/* 🔽 Responsive Design for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    .resume-button,
+    .learn-more {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .industry-section {
+        font-size: 14px;
+        padding: 15px;
+    }
 }
