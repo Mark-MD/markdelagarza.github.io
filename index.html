@@ -193,15 +193,25 @@
     <div class="quote-box">
   <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
 </div>
+<div class="quote-box">
+  <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
+</div>
 <div style="text-align:center; margin-top:20px;">
   <a class="download-btn" href="https://calendar.app.google/Dpmhyyi8rnJyWEJLA" target="_blank">📅 Schedule Time with Me</a>
 </div>
 
-<div id="robot-container" title="Industrial Pick & Place Robot - Industry 4.0">
-  <div class="robot-base"></div>
-  <div class="robot-arm">
-    <div class="gripper"></div>
-    <div class="box"></div>
+<div id="robot-container" title="Advanced Industrial Pick & Place Robot - Industry 4.0">
+  <div class="robot-platform"></div>
+  <div class="robot-column">
+    <div class="robot-joint"></div>
+    <div class="robot-arm">
+      <div class="robot-forearm"></div>
+      <div class="robot-gripper">
+        <div class="grip-left"></div>
+        <div class="grip-right"></div>
+      </div>
+      <div class="robot-box"></div>
+    </div>
   </div>
 </div>
 
@@ -210,59 +220,90 @@
   position: fixed;
   bottom: 10px;
   left: 10px;
-  width: 120px;
-  height: 140px;
+  width: 140px;
+  height: 200px;
   z-index: 999;
 }
-.robot-base {
-  position: absolute;
-  bottom: 0;
-  width: 60px;
+.robot-platform {
+  width: 100%;
   height: 20px;
   background: #444;
-  left: 30px;
-  border-radius: 6px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+}
+.robot-column {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+  width: 20px;
+  height: 100px;
+  background: #666;
+  border-radius: 10px;
+}
+.robot-joint {
+  width: 40px;
+  height: 20px;
+  background: #888;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  border-radius: 10px;
 }
 .robot-arm {
-  width: 20px;
-  height: 80px;
-  background: #888;
-  position: relative;
-  animation: pickPlace 6s infinite;
-  transform-origin: bottom center;
-  margin-left: 50px;
-  transition: transform 1s ease-in-out;
-}
-.gripper {
-  width: 30px;
-  height: 10px;
-  background: #555;
+  width: 12px;
+  height: 60px;
+  background: #999;
   position: absolute;
-  bottom: -10px;
+  top: 20px;
+  left: 4px;
+  animation: pickPlace 6s infinite;
+  transform-origin: top center;
+}
+.robot-forearm {
+  width: 10px;
+  height: 40px;
+  background: #bbb;
+  position: absolute;
+  top: 60px;
+  left: 1px;
+  transform-origin: top center;
+  animation: pickPlace 6s infinite reverse;
+}
+.robot-gripper {
+  position: absolute;
+  top: 100px;
   left: -5px;
+  display: flex;
+}
+.grip-left, .grip-right {
+  width: 5px;
+  height: 20px;
+  background: #555;
   border-radius: 2px;
 }
-.box {
-  width: 30px;
-  height: 30px;
+.grip-left { margin-right: 4px; }
+.robot-box {
+  width: 20px;
+  height: 20px;
   background: #2196f3;
   position: absolute;
-  bottom: -40px;
-  left: -5px;
-  animation: boxMotion 6s infinite;
+  top: 120px;
+  left: -4px;
   border-radius: 4px;
+  animation: boxMotion 6s infinite;
 }
 @keyframes pickPlace {
-  0%, 100% { transform: rotate(0deg); opacity: 1; }
-  25% { transform: rotate(-30deg); opacity: 1; }
-  50% { transform: rotate(0deg); opacity: 1; }
-  75% { transform: rotate(30deg); opacity: 1; }
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-25deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(25deg); }
 }
 @keyframes boxMotion {
-  0%, 100% { bottom: -40px; }
-  25% { bottom: 10px; }
-  50% { bottom: 10px; }
-  75% { bottom: -40px; }
+  0%, 100% { top: 120px; }
+  25% { top: 90px; }
+  50% { top: 90px; }
+  75% { top: 120px; }
 }
 .carousel {
   position: relative;
@@ -271,8 +312,8 @@
   min-height: 180px;
 }
 .carousel .testimonial {
-  position: absolute;
-  width: 100%;
+  display: none;
+  position: relative;
   opacity: 0;
   transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
   transform: translateY(10px);
@@ -280,8 +321,8 @@
   box-sizing: border-box;
 }
 .carousel .testimonial.active {
+  display: block;
   opacity: 1;
-  position: relative;
   transform: translateY(0);
 }
 @media (max-width: 768px) {
@@ -295,31 +336,33 @@
 </style>
 
 <script>
-let index = 0;
-const testimonials = document.querySelectorAll('.carousel .testimonial');
-setInterval(() => {
-  testimonials[index].classList.remove('active');
-  index = (index + 1) % testimonials.length;
-  testimonials[index].classList.add('active');
-}, 6000);
+document.addEventListener("DOMContentLoaded", function () {
+  let index = 0;
+  const testimonials = document.querySelectorAll('.carousel .testimonial');
+  setInterval(() => {
+    testimonials[index].classList.remove('active');
+    index = (index + 1) % testimonials.length;
+    testimonials[index].classList.add('active');
+  }, 6000);
 
-const robotArm = document.querySelector('.robot-arm');
-const box = document.querySelector('.box');
-const container = document.getElementById('robot-container');
+  const robotArm = document.querySelector('.robot-arm');
+  const box = document.querySelector('.robot-box');
+  const container = document.getElementById('robot-container');
 
-container.addEventListener('mouseenter', () => {
-  robotArm.style.animationPlayState = 'paused';
-  box.style.animationPlayState = 'paused';
-});
+  container.addEventListener('mouseenter', () => {
+    robotArm.style.animationPlayState = 'paused';
+    box.style.animationPlayState = 'paused';
+  });
 
-container.addEventListener('mouseleave', () => {
-  robotArm.style.animationPlayState = 'running';
-  box.style.animationPlayState = 'running';
+  container.addEventListener('mouseleave', () => {
+    robotArm.style.animationPlayState = 'running';
+    box.style.animationPlayState = 'running';
+  });
 });
 </script>
     </div>
         <div class="right">
-      <h1>About Me</h1></h1>
+      <h1>About Me</h1>
       <p>Hi, I’m Mark De La Garza, a Senior Systems Engineer with 15+ years in aerospace, defense, and smart manufacturing. I specialize in building resilient MES and automation systems, often bridging the gap between legacy infrastructure and Industry 4.0 solutions. I’ve led integration efforts at Rockwell, Symbotic, and General Atomics, and I’m always looking for new ways to optimize production, mentor teams, and apply real-world automation at scale. Whether you’re here to connect professionally, explore shared interests in robotics or MES, or just browse, welcome.</p>
 
       <h3>Experience</h3>
