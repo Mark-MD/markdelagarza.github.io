@@ -190,12 +190,133 @@
         <span>Requirements Gathering</span>
         <span>SDLC & OT&E</span>
       </div>
-     <div class="quote-box">
-      <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
-      </div>
-      <div style="text-align:center; margin-top:20px;">
-      <a class="download-btn" href="https://calendar.app.google/Dpmhyyi8rnJyWEJLA" target="_blank">📅 Schedule Time with Me</a>
-    </div>
+    <div class="quote-box">
+  <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
+</div>
+<div style="text-align:center; margin-top:20px;">
+  <a class="download-btn" href="https://calendar.app.google/Dpmhyyi8rnJyWEJLA" target="_blank">📅 Schedule Time with Me</a>
+</div>
+
+<div id="robot-container" title="Industrial Pick & Place Robot - Industry 4.0">
+  <div class="robot-base"></div>
+  <div class="robot-arm">
+    <div class="gripper"></div>
+    <div class="box"></div>
+  </div>
+</div>
+
+<style>
+#robot-container {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 120px;
+  height: 140px;
+  z-index: 999;
+}
+.robot-base {
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 20px;
+  background: #444;
+  left: 30px;
+  border-radius: 6px;
+}
+.robot-arm {
+  width: 20px;
+  height: 80px;
+  background: #888;
+  position: relative;
+  animation: pickPlace 6s infinite;
+  transform-origin: bottom center;
+  margin-left: 50px;
+  transition: transform 1s ease-in-out;
+}
+.gripper {
+  width: 30px;
+  height: 10px;
+  background: #555;
+  position: absolute;
+  bottom: -10px;
+  left: -5px;
+  border-radius: 2px;
+}
+.box {
+  width: 30px;
+  height: 30px;
+  background: #2196f3;
+  position: absolute;
+  bottom: -40px;
+  left: -5px;
+  animation: boxMotion 6s infinite;
+  border-radius: 4px;
+}
+@keyframes pickPlace {
+  0%, 100% { transform: rotate(0deg); opacity: 1; }
+  25% { transform: rotate(-30deg); opacity: 1; }
+  50% { transform: rotate(0deg); opacity: 1; }
+  75% { transform: rotate(30deg); opacity: 1; }
+}
+@keyframes boxMotion {
+  0%, 100% { bottom: -40px; }
+  25% { bottom: 10px; }
+  50% { bottom: 10px; }
+  75% { bottom: -40px; }
+}
+.carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  min-height: 180px;
+}
+.carousel .testimonial {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  transform: translateY(10px);
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.carousel .testimonial.active {
+  opacity: 1;
+  position: relative;
+  transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .carousel {
+    min-height: 240px;
+  }
+  .carousel .testimonial {
+    font-size: 14px;
+  }
+}
+</style>
+
+<script>
+let index = 0;
+const testimonials = document.querySelectorAll('.carousel .testimonial');
+setInterval(() => {
+  testimonials[index].classList.remove('active');
+  index = (index + 1) % testimonials.length;
+  testimonials[index].classList.add('active');
+}, 6000);
+
+const robotArm = document.querySelector('.robot-arm');
+const box = document.querySelector('.box');
+const container = document.getElementById('robot-container');
+
+container.addEventListener('mouseenter', () => {
+  robotArm.style.animationPlayState = 'paused';
+  box.style.animationPlayState = 'paused';
+});
+
+container.addEventListener('mouseleave', () => {
+  robotArm.style.animationPlayState = 'running';
+  box.style.animationPlayState = 'running';
+});
+</script>
     </div>
         <div class="right">
       <h1>About Me</h1></h1>
