@@ -276,7 +276,7 @@
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  height: 140px;
+  min-height: 180px;
 }
 .carousel .testimonial {
   position: absolute;
@@ -284,11 +284,21 @@
   opacity: 0;
   transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
   transform: translateY(10px);
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 .carousel .testimonial.active {
   opacity: 1;
   position: relative;
   transform: translateY(0);
+}
+@media (max-width: 768px) {
+  .carousel {
+    min-height: 240px;
+  }
+  .carousel .testimonial {
+    font-size: 14px;
+  }
 }
 </style>
 
@@ -302,7 +312,6 @@ setInterval(() => {
 }, 6000);
 </script>
 
-  
   <footer style="text-align:center; margin-top:auto; padding:20px; font-size:12px; color:#777;">
     © 2025 Mark De La Garza | Built with 💻 by Mark
   </footer>
