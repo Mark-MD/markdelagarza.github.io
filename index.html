@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mark De La Garza - Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Roboto', sans-serif;
       display: flex;
@@ -31,6 +33,7 @@
     .left img {
       width: 150px; height: 150px; border-radius: 50%;
       object-fit: cover; border: 3px solid #ccc; margin-bottom: 20px;
+      margin: 0 auto; display: block;
     }
     .left h2, .section-title, .right h1, .item h4 { color: #ccc; }
     .light-mode .left h2, .light-mode .section-title, .light-mode .right h1, .light-mode .item h4 { color: #333; }
@@ -42,8 +45,8 @@
     }
     .light-mode .left p, .light-mode .left a { color: #333; }
     .right { width: 65%; }
-    .right h1 { font-size: 32px; margin-bottom: 10px; }
-    .right h3 { color: #ccc; margin-top: 30px; margin-bottom: 10px; }
+    .right h1 { font-size: 32px; margin-bottom: 10px; text-align: left; }
+    .right h3 { color: #ccc; margin-top: 30px; margin-bottom: 10px; text-align: left; }
     .light-mode .right h3 { color: #444; }
     .item { margin-bottom: 20px; }
     .skills span {
@@ -54,7 +57,6 @@
     .light-mode .skills span { background: #ddd; color: #333; }
     ul { padding-left: 20px; }
     ul li { margin-bottom: 5px; }
-
     .toggle-container {
       position: absolute; top: 10px; right: 20px;
     }
@@ -68,44 +70,43 @@
       border-radius: 24px; position: relative; transition: background-color 0.3s;
     }
     .quote-box {
-    background-color: #2a2a40;
-    color: #ccc;
-    border-left: 4px solid #2196f3;
-    padding: 16px 20px;
-    margin: 40px 0;
-    border-radius: 8px;
-    font-style: italic;
-    text-align: center;
-    line-height: 1.6;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: #2a2a40;
+      color: #ccc;
+      border-left: 4px solid #2196f3;
+      padding: 16px 20px;
+      margin: 40px 0;
+      border-radius: 8px;
+      font-style: italic;
+      text-align: center;
+      line-height: 1.6;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
     .light-mode .quote-box {
-    background-color: #e0e0e0;
-    color: #222;
-    border-left-color: #1976d2;
+      background-color: #e0e0e0;
+      color: #222;
+      border-left-color: #1976d2;
     }
-    
     .download-btn {
-    display: inline-block;
-    padding: 8px 16px;
-    margin-top: 10px;
-    background-color: #2196f3;       /* Lighter than #ccc for contrast */
-    color: #000;                     /* Strong black text */
-    border: 2px solid #2196f3;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-  .download-btn:hover {
-    background-color: #2196f3;
-    color: #fff;
-    border-color: #2196f3;
-  }
-    /* Override for light mode to keep black text */
-    .light-mode .download-btn {
-    color: #000;
+      display: inline-block;
+      padding: 8px 16px;
+      margin-top: 10px;
+      background-color: #2196f3;
+      color: #000;
+      border: 2px solid #2196f3;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
     }
+    .download-btn::before {
+      content: "⬇️ ";
+    }
+    .download-btn:hover {
+      background-color: #2196f3;
+      color: #fff;
+      border-color: #2196f3;
+    }
+    .light-mode .download-btn { color: #000; }
     .theme-switch .slider::before {
       content: ""; position: absolute; top: 2px; left: 2px;
       height: 20px; width: 20px; background: #fff;
@@ -113,16 +114,8 @@
     }
     .theme-switch input:checked + .slider { background-color: #333; }
     .theme-switch input:checked + .slider::before { transform: translateX(26px); }
-
-       a {
-      color: #2196f3;
-      text-decoration: underline;
-    }
-
-    a:hover {
-      color: #1976d2;
-    }
-
+    a { color: #2196f3; text-decoration: underline; }
+    a:hover { color: #1976d2; }
     @media (max-width: 768px) {
       body { padding: 20px; }
       .resume { flex-direction: column; align-items: center; }
@@ -133,7 +126,6 @@
       .skills span { min-width: 100px; font-size: 13px; }
       ul { padding-left: 10px; }
     }
-
   </style>
 </head>
 <body>
@@ -143,7 +135,6 @@
       <span class="slider"></span>
     </label>
   </div>
-
   <div class="resume">
     <div class="left">
       <img src="profile.jpg" alt="Mark De La Garza">
@@ -179,7 +170,7 @@
       </div>
     </div>
         <div class="right">
-      <h1>About Me</h1></h1>
+      <h1>About Me</h1>
       <p>Hi, I’m Mark De La Garza, a Senior Systems Engineer with 15+ years in aerospace, defense, and smart manufacturing. I specialize in building resilient MES and automation systems, often bridging the gap between legacy infrastructure and Industry 4.0 solutions. I’ve led integration efforts at Rockwell, Symbotic, and General Atomics, and I’m always looking for new ways to optimize production, mentor teams, and apply real-world automation at scale. Whether you’re here to connect professionally, explore shared interests in robotics or MES, or just browse, welcome.</p>
 
       <h3>Experience</h3>
@@ -243,15 +234,16 @@
     </div>
   </div>
 
+  <footer style="text-align:center; padding:20px; font-size:12px; color:#777;">
+    © 2025 Mark De La Garza | Built with 💻 by Mark
+  </footer>
   <script>
-  const toggle = document.getElementById('themeToggle');
-  const html = document.documentElement;
-
-  toggle.addEventListener('change', () => {
-    html.classList.toggle('light-mode');
-    html.classList.toggle('dark-mode');
-  });
+    const toggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    toggle.addEventListener('change', () => {
+      html.classList.toggle('light-mode');
+      html.classList.toggle('dark-mode');
+    });
   </script>
 </body>
 </html>
-
