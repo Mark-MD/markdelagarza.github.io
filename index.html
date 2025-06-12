@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mark De La Garza - Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
     body {
       font-family: 'Roboto', sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      justify-content: center;
       padding: 40px;
     }
     .dark-mode body { background-color: #121212; color: #f0f0f0; }
@@ -35,7 +31,6 @@
     .left img {
       width: 150px; height: 150px; border-radius: 50%;
       object-fit: cover; border: 3px solid #ccc; margin-bottom: 20px;
-      margin: 0 auto; display: block;
     }
     .left h2, .section-title, .right h1, .item h4 { color: #ccc; }
     .light-mode .left h2, .light-mode .section-title, .light-mode .right h1, .light-mode .item h4 { color: #333; }
@@ -47,8 +42,8 @@
     }
     .light-mode .left p, .light-mode .left a { color: #333; }
     .right { width: 65%; }
-    .right h1 { font-size: 32px; margin-bottom: 10px; text-align: left; }
-    .right h3 { color: #ccc; margin-top: 30px; margin-bottom: 10px; text-align: left; }
+    .right h1 { font-size: 32px; margin-bottom: 10px; }
+    .right h3 { color: #ccc; margin-top: 30px; margin-bottom: 10px; }
     .light-mode .right h3 { color: #444; }
     .item { margin-bottom: 20px; }
     .skills span {
@@ -59,6 +54,7 @@
     .light-mode .skills span { background: #ddd; color: #333; }
     ul { padding-left: 20px; }
     ul li { margin-bottom: 5px; }
+
     .toggle-container {
       position: absolute; top: 10px; right: 20px;
     }
@@ -72,43 +68,44 @@
       border-radius: 24px; position: relative; transition: background-color 0.3s;
     }
     .quote-box {
-      background-color: #2a2a40;
-      color: #ccc;
-      border-left: 4px solid #2196f3;
-      padding: 16px 20px;
-      margin: 40px 0;
-      border-radius: 8px;
-      font-style: italic;
-      text-align: center;
-      line-height: 1.6;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #2a2a40;
+    color: #ccc;
+    border-left: 4px solid #2196f3;
+    padding: 16px 20px;
+    margin: 40px 0;
+    border-radius: 8px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
     .light-mode .quote-box {
-      background-color: #e0e0e0;
-      color: #222;
-      border-left-color: #1976d2;
+    background-color: #e0e0e0;
+    color: #222;
+    border-left-color: #1976d2;
     }
+    
     .download-btn {
-      display: inline-block;
-      padding: 8px 16px;
-      margin-top: 10px;
-      background-color: #2196f3;
-      color: #000;
-      border: 2px solid #2196f3;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #2196f3;       /* Lighter than #ccc for contrast */
+    color: #000;                     /* Strong black text */
+    border: 2px solid #2196f3;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  .download-btn:hover {
+    background-color: #2196f3;
+    color: #fff;
+    border-color: #2196f3;
+  }
+    /* Override for light mode to keep black text */
+    .light-mode .download-btn {
+    color: #000;
     }
-    .download-btn::before {
-      content: "⬇️ ";
-    }
-    .download-btn:hover {
-      background-color: #2196f3;
-      color: #fff;
-      border-color: #2196f3;
-    }
-    .light-mode .download-btn { color: #000; }
     .theme-switch .slider::before {
       content: ""; position: absolute; top: 2px; left: 2px;
       height: 20px; width: 20px; background: #fff;
@@ -116,8 +113,16 @@
     }
     .theme-switch input:checked + .slider { background-color: #333; }
     .theme-switch input:checked + .slider::before { transform: translateX(26px); }
-    a { color: #2196f3; text-decoration: underline; }
-    a:hover { color: #1976d2; }
+
+       a {
+      color: #2196f3;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #1976d2;
+    }
+
     @media (max-width: 768px) {
       body { padding: 20px; }
       .resume { flex-direction: column; align-items: center; }
@@ -128,28 +133,7 @@
       .skills span { min-width: 100px; font-size: 13px; }
       ul { padding-left: 10px; }
     }
-    .testimonials {
-      margin: 40px 0;
-      padding: 20px;
-      background: #2a2a40;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-    .testimonials h3 {
-      color: #ccc;
-      margin-bottom: 20px;
-    }
-    .testimonial {
-      margin-bottom: 16px;
-      font-style: italic;
-      color: #ddd;
-    }
-    .light-mode .testimonials {
-      background: #f0f0f0;
-    }
-    .light-mode .testimonial {
-      color: #444;
-    }
+
   </style>
 </head>
 <body>
@@ -160,7 +144,7 @@
     </label>
   </div>
 
-    <div class="resume">
+  <div class="resume">
     <div class="left">
       <img src="profile.jpg" alt="Mark De La Garza">
       <h2>Mark De La Garza</h2>
@@ -190,176 +174,12 @@
         <span>Requirements Gathering</span>
         <span>SDLC & OT&E</span>
       </div>
-    <div class="quote-box">
-  <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
-</div>
-<div style="text-align:center; margin-top:20px;">
-  <a class="download-btn" href="https://calendar.app.google/Dpmhyyi8rnJyWEJLA" target="_blank">📅 Schedule Time with Me</a>
-</div>
-
-<div id="robot-container" title="Advanced Industrial Pick & Place Robot - Industry 4.0">
-  <div class="robot-platform"></div>
-  <div class="robot-column">
-    <div class="robot-joint"></div>
-    <div class="robot-arm">
-      <div class="robot-forearm"></div>
-      <div class="robot-gripper">
-        <div class="grip-left"></div>
-        <div class="grip-right"></div>
+       <div class="quote-box">
+      <p><em>"Interested in collaborating on smart factory initiatives? Feel free to connect via LinkedIn or schedule a conversation."</em></p>
       </div>
-      <div class="robot-box"></div>
-    </div>
-  </div>
-</div>
-
-<style>
-#robot-container {
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  width: 140px;
-  height: 200px;
-  z-index: 999;
-}
-.robot-platform {
-  width: 100%;
-  height: 20px;
-  background: #444;
-  border-radius: 4px;
-  position: absolute;
-  bottom: 0;
-}
-.robot-column {
-  position: absolute;
-  bottom: 20px;
-  left: 60px;
-  width: 20px;
-  height: 100px;
-  background: #666;
-  border-radius: 10px;
-}
-.robot-joint {
-  width: 40px;
-  height: 20px;
-  background: #888;
-  position: absolute;
-  top: 0;
-  left: -10px;
-  border-radius: 10px;
-}
-.robot-arm {
-  width: 12px;
-  height: 60px;
-  background: #999;
-  position: absolute;
-  top: 20px;
-  left: 4px;
-  animation: pickPlace 6s infinite;
-  transform-origin: top center;
-}
-.robot-forearm {
-  width: 10px;
-  height: 40px;
-  background: #bbb;
-  position: absolute;
-  top: 60px;
-  left: 1px;
-  transform-origin: top center;
-  animation: pickPlace 6s infinite reverse;
-}
-.robot-gripper {
-  position: absolute;
-  top: 100px;
-  left: -5px;
-  display: flex;
-}
-.grip-left, .grip-right {
-  width: 5px;
-  height: 20px;
-  background: #555;
-  border-radius: 2px;
-}
-.grip-left { margin-right: 4px; }
-.robot-box {
-  width: 20px;
-  height: 20px;
-  background: #2196f3;
-  position: absolute;
-  top: 120px;
-  left: -4px;
-  border-radius: 4px;
-  animation: boxMotion 6s infinite;
-}
-@keyframes pickPlace {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-25deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(25deg); }
-}
-@keyframes boxMotion {
-  0%, 100% { top: 120px; }
-  25% { top: 90px; }
-  50% { top: 90px; }
-  75% { top: 120px; }
-}
-.carousel {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  min-height: 180px;
-}
-.carousel .testimonial {
-  display: none;
-  position: relative;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-  transform: translateY(10px);
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-.carousel .testimonial.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-@media (max-width: 768px) {
-  .carousel {
-    min-height: 240px;
-  }
-  .carousel .testimonial {
-    font-size: 14px;
-  }
-}
-</style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  let index = 0;
-  const testimonials = document.querySelectorAll('.carousel .testimonial');
-  setInterval(() => {
-    testimonials[index].classList.remove('active');
-    index = (index + 1) % testimonials.length;
-    testimonials[index].classList.add('active');
-  }, 6000);
-
-  const robotArm = document.querySelector('.robot-arm');
-  const box = document.querySelector('.robot-box');
-  const container = document.getElementById('robot-container');
-
-  container.addEventListener('mouseenter', () => {
-    robotArm.style.animationPlayState = 'paused';
-    box.style.animationPlayState = 'paused';
-  });
-
-  container.addEventListener('mouseleave', () => {
-    robotArm.style.animationPlayState = 'running';
-    box.style.animationPlayState = 'running';
-  });
-});
-</script>
     </div>
         <div class="right">
-      <h1>About Me</h1>
+      <h1>About Me</h1></h1>
       <p>Hi, I’m Mark De La Garza, a Senior Systems Engineer with 15+ years in aerospace, defense, and smart manufacturing. I specialize in building resilient MES and automation systems, often bridging the gap between legacy infrastructure and Industry 4.0 solutions. I’ve led integration efforts at Rockwell, Symbotic, and General Atomics, and I’m always looking for new ways to optimize production, mentor teams, and apply real-world automation at scale. Whether you’re here to connect professionally, explore shared interests in robotics or MES, or just browse, welcome.</p>
 
       <h3>Experience</h3>
@@ -423,67 +243,14 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 
-<div class="testimonials">
-  <h3>What People Are Saying</h3>
-  <div class="carousel">
-    <div class="testimonial active">"Mark consistently delivered results with calm precision during high-pressure system deployments. A reliable and innovative engineer." – Supervisor, Rockwell Automation</div>
-    <div class="testimonial">“Mark was instrumental to Symbotic’s success in New Braunfels, TX. As a Systems Engineer, he led by example—mentoring over 50 employees, assisting with national hiring efforts, and driving performance that kept our site ranked in the top 3 among Gen 2 facilities. He interviewed over 40 candidates, supported technical training across functions, and proactively expanded his knowledge to uplift the team. Mark’s leadership, problem-solving mindset, and dedication were critical to our early wins.” – Automation General Manager, Symbotic</div>
-    <div class="testimonial">"Mark is a trusted expert in DoD payload integration and secure RPA systems. Mark’s mentorship enhanced our ISR capabilities and shaped a mission-ready team." – Supervisor, General Atomics System Integration</div>
-  </div>
-</div>
-
-<style>
-.carousel {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  min-height: 180px;
-}
-.carousel .testimonial {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-  transform: translateY(10px);
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-.carousel .testimonial.active {
-  opacity: 1;
-  position: relative;
-  transform: translateY(0);
-}
-@media (max-width: 768px) {
-  .carousel {
-    min-height: 240px;
-  }
-  .carousel .testimonial {
-    font-size: 14px;
-  }
-}
-</style>
-
-<script>
-let index = 0;
-const testimonials = document.querySelectorAll('.carousel .testimonial');
-setInterval(() => {
-  testimonials[index].classList.remove('active');
-  index = (index + 1) % testimonials.length;
-  testimonials[index].classList.add('active');
-}, 6000);
-</script>
-
-  <footer style="text-align:center; margin-top:auto; padding:20px; font-size:12px; color:#777;">
-    © 2025 Mark De La Garza | Built with 💻 by Mark
-  </footer>
-
   <script>
-    const toggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
-    toggle.addEventListener('change', () => {
-      html.classList.toggle('light-mode');
-      html.classList.toggle('dark-mode');
-    });
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+
+  toggle.addEventListener('change', () => {
+    html.classList.toggle('light-mode');
+    html.classList.toggle('dark-mode');
+  });
   </script>
 </body>
 </html>
