@@ -12,7 +12,9 @@
     body {
       font-family: 'Roboto', sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
       padding: 40px;
     }
     .dark-mode body { background-color: #121212; color: #f0f0f0; }
@@ -126,6 +128,28 @@
       .skills span { min-width: 100px; font-size: 13px; }
       ul { padding-left: 10px; }
     }
+    .testimonials {
+      margin: 40px 0;
+      padding: 20px;
+      background: #2a2a40;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .testimonials h3 {
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+    .testimonial {
+      margin-bottom: 16px;
+      font-style: italic;
+      color: #ddd;
+    }
+    .light-mode .testimonials {
+      background: #f0f0f0;
+    }
+    .light-mode .testimonial {
+      color: #444;
+    }
   </style>
 </head>
 <body>
@@ -135,7 +159,8 @@
       <span class="slider"></span>
     </label>
   </div>
-  <div class="resume">
+
+    <div class="resume">
     <div class="left">
       <img src="profile.jpg" alt="Mark De La Garza">
       <h2>Mark De La Garza</h2>
@@ -170,7 +195,7 @@
       </div>
     </div>
         <div class="right">
-      <h1>About Me</h1>
+      <h1>About Me</h1></h1>
       <p>Hi, I’m Mark De La Garza, a Senior Systems Engineer with 15+ years in aerospace, defense, and smart manufacturing. I specialize in building resilient MES and automation systems, often bridging the gap between legacy infrastructure and Industry 4.0 solutions. I’ve led integration efforts at Rockwell, Symbotic, and General Atomics, and I’m always looking for new ways to optimize production, mentor teams, and apply real-world automation at scale. Whether you’re here to connect professionally, explore shared interests in robotics or MES, or just browse, welcome.</p>
 
       <h3>Experience</h3>
@@ -234,9 +259,21 @@
     </div>
   </div>
 
-  <footer style="text-align:center; padding:20px; font-size:12px; color:#777;">
+  <div class="testimonials">
+    <h3>What People Are Saying</h3>
+    <div class="testimonial">"Mark consistently delivered results with calm precision during high-pressure system deployments. A reliable and innovative engineer." – Supervisor, Rockwell Automation</div>
+    <div class="testimonial">"His ability to bridge the gap between control systems and IT was invaluable for our automation rollout." – Peer, Symbotic</div>
+    <div class="testimonial">"A go-to expert in MES and robotics. Mark’s mentorship shaped our junior engineering team." – Team Lead, General Atomics</div>
+  </div>
+
+  <div style="margin: 40px auto; text-align: center;">
+    <a class="download-btn" href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3tfjHOHZxKaUSc4L6WVmRS1NhrqL7VYuR_gDI-ZNqHvNK7MupmNfg75ADf3Dl2QAjcTUKoNE-S" target="_blank">📅 Schedule Time with Me</a>
+  </div>
+
+  <footer style="text-align:center; margin-top:auto; padding:20px; font-size:12px; color:#777;">
     © 2025 Mark De La Garza | Built with 💻 by Mark
   </footer>
+
   <script>
     const toggle = document.getElementById('themeToggle');
     const html = document.documentElement;
