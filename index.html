@@ -151,6 +151,7 @@
       color: #444;
     }
   </style>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
   <div class="toggle-container">
@@ -196,6 +197,28 @@
       <div style="text-align:center; margin-top:20px;">
       <a class="download-btn" href="https://calendar.app.google/Dpmhyyi8rnJyWEJLA" target="_blank">📅 Schedule Time with Me</a>
     </div>
+     <div style="margin-top: 30px; text-align: center;">
+    <model-viewer 
+      src="assets/scene.gltf"
+      alt="Robot Arm performing pick-and-place"
+      auto-rotate 
+      autoplay 
+      camera-controls 
+      animation-loop 
+      shadow-intensity="1" 
+      style="width: 100%; max-width: 500px; height: 400px;"
+      environment-image="neutral">
+    </model-viewer>
+    <p style="font-size: 12px; color: #888; margin-top: 10px;">
+      This work is based on 
+    <a href="https://sketchfab.com/3d-models/robot-arm-strong-animation-loop-896aa8e996074ae58d7bc4a40587aa9a" target="_blank">
+      "Robot Arm-Strong Animation Loop"
+    </a> 
+    by 
+    <a href="https://sketchfab.com/BenDuckett95" target="_blank">BenDuckett95</a>, licensed under 
+    <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY-4.0</a>.
+  </p>
+</div>
     </div>
         <div class="right">
       <h1>About Me</h1></h1>
