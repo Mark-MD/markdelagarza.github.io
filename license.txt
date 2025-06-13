@@ -1,0 +1,11 @@
+Model Information:
+* title:	Robot Arm-Strong Animation Loop
+* source:	https://sketchfab.com/3d-models/robot-arm-strong-animation-loop-896aa8e996074ae58d7bc4a40587aa9a
+* author:	BenDuckett95 (https://sketchfab.com/BenDuckett95)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Robot Arm-Strong Animation Loop" (https://sketchfab.com/3d-models/robot-arm-strong-animation-loop-896aa8e996074ae58d7bc4a40587aa9a) by BenDuckett95 (https://sketchfab.com/BenDuckett95) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
