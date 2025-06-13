@@ -306,31 +306,27 @@
 
 <style>
 .carousel {
-  position: relative;
   width: 100%;
-  height: 200px; /* fixed height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 20px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel .testimonial {
-  position: absolute;
+  display: none;
   width: 100%;
-  opacity: 0;
-  transition: opacity 1.5s ease-in-out;
   padding: 0 40px;
-  box-sizing: border-box;
   text-align: center;
+  box-sizing: border-box;
   line-height: 1.5;
+  transition: opacity 1.5s ease-in-out;
 }
 
 .carousel .testimonial.active {
+  display: block;
   opacity: 1;
 }
-
 .light-mode .testimonials {
   background: #f0f0f0;
 }
