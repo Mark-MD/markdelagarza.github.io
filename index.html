@@ -304,24 +304,16 @@
   position: relative;
   max-width: 100%;
   overflow: hidden;
-  min-height: 180px;
-}
-.carousel {
-  position: relative;
-  max-width: 100%;
-  overflow: hidden;
-  height: 200px; /* Fixed height to prevent jumping */
+  height: 200px; /* Fixed height to prevent shifting */
   display: flex;
-  align-items: center; /* Vertically center text */
+  align-items: center;
   justify-content: center;
 }
-
 .carousel .testimonial {
   position: absolute;
   width: 100%;
   opacity: 0;
-  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-  transform: translateY(10px);
+  transition: opacity 1.5s ease-in-out;
   padding: 0 20px;
   box-sizing: border-box;
   text-align: center;
@@ -330,30 +322,34 @@
 
 .carousel .testimonial.active {
   opacity: 1;
-  position: relative;
-  transform: translateY(0);
 }
 
 @media (max-width: 768px) {
   .carousel {
-    height: 260px; /* Adjust for mobile */
+    height: 260px; /* Adjusted for longer mobile quotes */
   }
   .carousel .testimonial {
     font-size: 14px;
   }
 }
 </style>
-
 <script>
 let index = 0;
 const testimonials = document.querySelectorAll('.carousel .testimonial');
-setInterval(() => {
-  testimonials[index].classList.remove('active');
-  index = (index + 1) % testimonials.length;
-  testimonials[index].classList.add('active');
-}, 6000);
-</script>
 
+function showTestimonial() {
+  testimonials.forEach((el, i) => {
+    el.classList.remove('active');
+    if (i === index) {
+      el.classList.add('active');
+    }
+  });
+  index = (index + 1) % testimonials.length;
+}
+
+showTestimonial(); // Initial call
+setInterval(showTestimonial, 10000); // 10 seconds
+</script>
   <footer style="text-align:center; margin-top:auto; padding:20px; font-size:12px; color:#777;">
     © 2025 Mark De La Garza | Built with 💻 by Mark
   </footer>
