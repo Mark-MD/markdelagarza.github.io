@@ -197,20 +197,25 @@
       <div style="text-align:center; margin-top:20px;">
       <a class="download-btn" href="https://calendar.app.google/Dpmhyyi8rnJyWEJLA" target="_blank">📅 Schedule Time with Me</a>
     </div>
-     <div style="margin-top: 30px; text-align: center;">
-    <model-viewer 
-      src="assets/scene.gltf"
-      alt="Robot Arm performing pick-and-place"
-      auto-rotate 
-      autoplay 
-      camera-controls 
-      animation-loop 
-      shadow-intensity="1" 
-      style="width: 100%; max-width: 500px; height: 400px;"
-      environment-image="neutral">
-    </model-viewer>
-    <p style="font-size: 12px; color: #888; margin-top: 10px;">
-      This work is based on 
+     <!-- Load model-viewer -->
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+<!-- 3D Robot Arm Embed -->
+<div style="margin-top: 30px; text-align: center;">
+  <model-viewer 
+    src="scene.gltf"
+    alt="3D Robotic Arm Pick and Place"
+    autoplay 
+    auto-rotate 
+    animation-loop 
+    camera-controls 
+    shadow-intensity="1"
+    environment-image="neutral"
+    style="width: 100%; max-width: 500px; height: 400px;">
+  </model-viewer>
+
+  <p style="font-size: 12px; color: #888; margin-top: 10px;">
+    This work is based on 
     <a href="https://sketchfab.com/3d-models/robot-arm-strong-animation-loop-896aa8e996074ae58d7bc4a40587aa9a" target="_blank">
       "Robot Arm-Strong Animation Loop"
     </a> 
