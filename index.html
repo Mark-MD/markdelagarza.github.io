@@ -306,23 +306,37 @@
   overflow: hidden;
   min-height: 180px;
 }
+.carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 200px; /* Fixed height to prevent jumping */
+  display: flex;
+  align-items: center; /* Vertically center text */
+  justify-content: center;
+}
+
 .carousel .testimonial {
   position: absolute;
   width: 100%;
   opacity: 0;
   transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
   transform: translateY(10px);
-  padding: 0 10px;
+  padding: 0 20px;
   box-sizing: border-box;
+  text-align: center;
+  line-height: 1.5;
 }
+
 .carousel .testimonial.active {
   opacity: 1;
   position: relative;
   transform: translateY(0);
 }
+
 @media (max-width: 768px) {
   .carousel {
-    min-height: 240px;
+    height: 260px; /* Adjust for mobile */
   }
   .carousel .testimonial {
     font-size: 14px;
